@@ -1,4 +1,3 @@
-import numpy as np
 import cv2
 image = cv2.imread('owl.jpg')
 cv2.imshow('owl', image)
