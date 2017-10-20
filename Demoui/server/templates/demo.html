@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Computer Vision fun!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+</head>
+<style>
+    body {
+        overflow: hidden!important;
+    }
+    .demo {
+        margin-top: 1rem;
+        box-shadow: 15px 15px 5px -12px #888888;
+    }
+</style>
+
+<body>
+    <section class="hero is-primary" style="box-shadow: 15px 15px 5px -12px #888888;">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Demo
+                </h1>
+                <h2 class="subtitle">
+                   <a href="https://github.com/Aniket965/ComputerVisionfun/blob/master/LiveSketch/main.py">Live Sketch</a> is real time sketching Creating webapp using Webcam Created using opencv
+                </h2>
+            </div>
+        </div>
+    </section>
+    <div class="columns">
+        <div class="column">
+            <center>
+                <img src="{{url_for('livesketchimg')}}" alt="livestream" class="card demo"> </center>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

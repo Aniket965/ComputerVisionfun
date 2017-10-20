@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <section class="hero is-sucess is-medium is-primary is-bold">
+  <section class="hero is-sucess is-medium is-primary is-bold" style="box-shadow: 15px 15px 5px -12px #888888;">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
@@ -30,7 +30,7 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-48x48">
-            <a href="/livesketch"> <img src="https://maxcdn.icons8.com/Share/icon/Media_Controls//circled_play1600.png" alt="play" ></a>
+            <a href="{{url_for('livesketch')}}"> <img src="https://maxcdn.icons8.com/Share/icon/Media_Controls//circled_play1600.png" alt="play" ></a>
           </figure>
         </div>
         <div class="media-content">
@@ -45,9 +45,6 @@
         Live sketch using webcam including bluring, grayscaling and canny edge detection functions
         <a href="https://github.com/opencv/opencv/">@opencv</a>.
         <br>
-        <figure>
-            <img src="http://localhost:5000/livesketch" alt="Placeholder image" width="400" height="600">
-          </figure>
       </div>
     </div
   </div>

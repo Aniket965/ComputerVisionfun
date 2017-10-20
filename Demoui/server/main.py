@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Response
+from flask import Flask,render_template,Response, url_for
 from camera import VideoCamera
 app = Flask(__name__)
 
@@ -6,13 +6,17 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/livesketch')
+def livesketch():
+    return render_template('demo.html')
+
 def genLivesketch(camera):
     while True:
         frame = camera.getLiveSketch()
         yield (b'--frame\r\n'
             b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-@app.route('/livesketch')
-def livesketch():
+@app.route('/livesketchimg')
+def livesketchimg():
     return Response(genLivesketch(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 def gen(camera):
