@@ -1,7 +1,7 @@
 import cv2
 import dlib
-import numpy as np
-predictor_path = "path"
+import numpy
+predictor_path = "shape_predictor_68_face_landmarks.dat"
 predictor = dlib.shape_predictor(predictor_path)
 detector = dlib.get_frontal_face_detector()
 
@@ -21,12 +21,18 @@ def annotate_landmarks(im,landmarks):
     im = im.copy()
     for idx,point in enumerate(landmarks):
         pos = (point[0,0],point[0,1])
-        cv2.putText(im, str(idx),pos,fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,color=(0,255,0))
+        cv2.putText(im, str(idx),pos,fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,fontScale=0.3 ,color=(0,255,0))
         cv2.circle(im,pos,3,color=(0,255,255))
     return im
-image = ('lol.jpg')
-landmarks = get_landmarks(image)
-marked_image = annotate_landmarks(image,landmarks)
-cv2.imshow('image with Features',marked_image)
+cap = cv2.VideoCapture(0)
+while True:   
+    ret,frame = cap.read()
+    gray_frame = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+    # image = cv2.imread('modi.jpg')
+    landmarks = get_landmarks(gray_frame)
+    marked_image = annotate_landmarks(frame,landmarks)
+    cv2.imshow('image with Features',marked_image)
+    if cv2.waitKey(1) == 13:
+        break
 cv2.waitKey()
 cv2.destroyAllWindows()
